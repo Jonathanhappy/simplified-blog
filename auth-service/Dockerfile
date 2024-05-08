@@ -16,9 +16,8 @@ FROM adoptopenjdk
 
 WORKDIR /app
 
-COPY --from=build /app/target/comment-service.jar .
+COPY --from=build /app/target/auth-service.jar .
 
 EXPOSE 8080
 
-CMD [ "java", "-jar", "comment-service.jar"]
-
+CMD [ "java", "-jar", "auth-service.jar"]
