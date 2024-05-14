@@ -4,9 +4,11 @@ import com.adacorp.postservice.post_dto.PostDto;
 import com.adacorp.postservice.post_modele.PostModel;
 import com.adacorp.postservice.post_repository.PostRepository;
 import com.adacorp.postservice.post_services.PostService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,4 +42,5 @@ public class ImplPostService implements PostService {
     public void delete(UUID postId) {
 
     }
+
 }
