@@ -6,8 +6,11 @@ import com.adacorp.postservice.post_repository.PostRepository;
 import com.adacorp.postservice.post_services.PostService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -29,18 +32,39 @@ public class ImplPostService implements PostService {
     }
 
     @Override
-    public PostDto findBy(UUID postId) {
-        return null;
+    public PostDto findById(UUID postId) {
+
+        PostModel myPost = postRepository.findById(postId)
+                .orElseThrow(()->new EntityNotFoundException("aucun post trouvé avec l'ID "+ postId));
+
+        return PostDto.DuModelAuDto(myPost);
+    }
+
+    @Override
+    public PostDto findByDatePosted(LocalDate datePosted) {
+
+        PostModel myPost = postRepository.findByDatePosted(datePosted)
+                .orElseThrow(()->new EntityNotFoundException("aucun post trouvé à la date du "+datePosted));
+        return PostDto.DuModelAuDto(myPost);
     }
 
     @Override
     public List<PostDto> findAll() {
-        return List.of();
+
+        List<PostModel> allPost = postRepository.findAll();
+        List<PostDto> postTodisplay = new ArrayList<>();
+
+        for (PostModel item: allPost){
+            postTodisplay.add(PostDto.DuModelAuDto(item));
+        }
+
+        return postTodisplay;
     }
 
     @Override
     public void delete(UUID postId) {
 
+        postRepository.deleteById(postId);
     }
 
 }
