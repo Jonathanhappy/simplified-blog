@@ -46,3 +46,4 @@ services:
 volumes:
   auth_db_data:
   comment_db_data:
+ 
