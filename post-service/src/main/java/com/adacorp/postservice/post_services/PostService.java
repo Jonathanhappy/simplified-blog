@@ -10,9 +10,9 @@ import java.util.UUID;
 public interface PostService {
 
     PostDto save(PostDto postDto);
-    PostDto findById(UUID postId);
+    PostDto findById(int postId);
     PostDto findByDatePosted(LocalDate datePosted);
     List<PostDto> findAll();
-    void delete (UUID postId);
+    void delete (int postId);
 
 }

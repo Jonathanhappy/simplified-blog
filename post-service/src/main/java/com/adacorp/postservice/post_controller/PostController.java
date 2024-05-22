@@ -13,15 +13,16 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/posts/")
+@RequestMapping("posts")
 @RequiredArgsConstructor
 public class PostController {
 
+    /* Injection des dependances du service par un constructeur private*/
     private final PostService postService;
 
+    @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping("create")
     public PostDto newPost(@RequestBody PostDto postdto){
-
         return postService.save(postdto);
     }
 
@@ -32,7 +33,7 @@ public class PostController {
     }
 
     @GetMapping("get-post-by-ID")
-    public PostDto findPostById(UUID postId){
+    public PostDto findPostById(int postId){
 
         return postService.findById(postId);
     }
@@ -44,7 +45,7 @@ public class PostController {
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<String> deletePost(UUID postId){
+    public ResponseEntity<String> deletePost(int postId){
 
         postService.delete(postId);
 

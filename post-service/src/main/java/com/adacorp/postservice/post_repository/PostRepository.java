@@ -9,8 +9,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface PostRepository extends JpaRepository<PostModel, UUID> {
-
-
+public interface PostRepository extends JpaRepository<PostModel, Integer> {
     Optional<PostModel> findByDatePosted(LocalDate datePosted);
 }

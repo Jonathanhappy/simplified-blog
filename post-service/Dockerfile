@@ -12,12 +12,15 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Utilisation de l'image OpenJDK 17 comme base image pour l'execution du projet
-FROM adoptopenjdk
+FROM openjdk:17-alpine
+#FROM openjdk:17-jdk-slim
+#FROM amazoncorretto:17.0.7-alpine
+#FROM openjdk:17-oracle
 
 WORKDIR /app
 
 COPY --from=build /app/target/post-service.jar .
 
-EXPOSE 8080
+EXPOSE 8000
 
 CMD [ "java", "-jar", "post-service.jar"]
