@@ -1,6 +1,8 @@
 package com.adacorp.postservice.post_dto;
 
+import com.adacorp.postservice.enums.StatusEnum;
 import com.adacorp.postservice.post_modele.PostModel;
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +21,7 @@ public class PostDto {
     private String title;
     private String postContent;
     private LocalDate datePosted;
+    private StatusEnum status;
 
     public static PostModel DuDtoAuModel(PostDto postdto){
 
