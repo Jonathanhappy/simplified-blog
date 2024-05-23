@@ -65,7 +65,7 @@
 - `/api/v1/posts/get-all :` retourne tous les posts crées
 - `/api/v1/posts/del/{post_id} :` Suppression d'un post via son identifiant
 - `/api/v1/posts/change-post/{post_id} :` modifier post via son identifiant
-- `/api/v1/posts/save-post/{post_id} :` enregistrer post
+- `/api/v1/posts/save-post/{post_id} :` enregistrer post drafté
 - `/api/v1/posts/get-all-post-saved :` retourne tous les posts enregistrés
 - `/api/v1/posts/report-post/{post_id} :` signalé un post
 - `/api/v1/posts/get-all-post-reported :` retourne tous les posts signalés
