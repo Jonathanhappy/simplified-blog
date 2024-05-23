@@ -13,9 +13,6 @@ services:
     volumes:
       - auth_db_data:/var/lib/postgresql/data
 
-
-      - post_db_data:/var/lib/postgresql/data
-
   comment_db:
     image: postgres:latest
     container_name: comment_db
@@ -37,22 +34,6 @@ services:
     depends_on:
       - auth_db
 
-  post_service:
-    build:
-      context: ./post-service
-      dockerfile: Dockerfile
-    image: simplified-blog-post_service
-    container_name: post-service_con
-    environment:
-      url: jdbc:postgresql://post_db:5432/post_db
-      username: post_user
-      password: post_pass
-    ports:
-      - "8089:8080"
-    depends_on:
-      - post_db
-    restart: always
-
   comment_service:
     build:
       context: ./comment-service
@@ -65,4 +46,4 @@ services:
 volumes:
   auth_db_data:
   comment_db_data:
-  post_db_data:
+ 
