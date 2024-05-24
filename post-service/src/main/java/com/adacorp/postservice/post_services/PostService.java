@@ -12,11 +12,11 @@ import java.util.UUID;
 public interface PostService {
 
     PostDto save(PostDto postDto);
-    PostDto findById(UUID postId);
+    PostDto findById(int postId);
     PostDto findByDatePosted(LocalDate datePosted);
     List<PostDto> findBy(String keyword);
     List<PostDto> findAll();
+    void delete (int postId);
     PostDto updatePostById(UUID postId, Map<String, String> champAmodifier);
-    void delete (UUID postId);
-
+   
 }

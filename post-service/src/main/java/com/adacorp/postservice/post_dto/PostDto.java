@@ -17,7 +17,7 @@ import java.util.UUID;
 @Data
 public class PostDto {
 
-    private UUID postId;
+    private int postId;
     private String title;
     private String postContent;
     private LocalDate datePosted;

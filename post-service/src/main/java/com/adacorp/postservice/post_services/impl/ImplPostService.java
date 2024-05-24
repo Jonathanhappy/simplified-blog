@@ -43,7 +43,7 @@ public class ImplPostService implements PostService {
 
 
     @Override
-    public PostDto findById(UUID postId) {
+    public PostDto findById(int postId) {
 
         PostModel myPost = postRepository.findById(postId)
                 .orElseThrow(()->new EntityNotFoundException("aucun post trouvé avec l'ID "+ postId));
@@ -90,7 +90,7 @@ public class ImplPostService implements PostService {
         return postTodisplay;
     }
 
-    @Override
+ 
     public PostDto updatePostById(UUID postId, Map<String,String> champAmodifier) {
 
         //find the post to update
@@ -114,7 +114,7 @@ public class ImplPostService implements PostService {
     }
 
     @Override
-    public void delete(UUID postId) {
+    public void delete(int postId) {
 
         postRepository.deleteById(postId);
     }
