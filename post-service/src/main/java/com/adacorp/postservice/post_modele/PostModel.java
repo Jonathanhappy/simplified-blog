@@ -1,6 +1,11 @@
 package com.adacorp.postservice.post_modele;
 
-import jakarta.persistence.*;
+
+import com.adacorp.postservice.enums.StatusEnum;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 import java.time.LocalDate;
 
@@ -12,10 +17,13 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "posts")
 public class PostModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int postId;
     private String title;
     private String postContent;
     private LocalDate datePosted;
+    private StatusEnum status;
+
 }
