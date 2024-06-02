@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public class PostModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int postId;
     private String title;
     private String postContent;

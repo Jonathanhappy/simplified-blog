@@ -27,4 +27,3 @@ services:
       - "8082:8000"
     depends_on:
       - post_db
-

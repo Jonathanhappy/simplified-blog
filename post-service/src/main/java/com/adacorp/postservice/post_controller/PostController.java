@@ -67,7 +67,7 @@ public class PostController {
 
     @Operation(summary = "Modifier un post à partir de son identifiant")
     @PatchMapping("change-post/{postId}")
-    public PostDto changePostById(@PathVariable UUID postId, @RequestBody Map<String, String> champAmodifier){
+    public PostDto changePostById(@PathVariable int postId, @RequestBody Map<String, String> champAmodifier){
 
         return postService.updatePostById(postId, champAmodifier);
     }
