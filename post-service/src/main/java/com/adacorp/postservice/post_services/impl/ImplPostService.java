@@ -91,7 +91,7 @@ public class ImplPostService implements PostService {
     }
 
  
-    public PostDto updatePostById(UUID postId, Map<String,String> champAmodifier) {
+    public PostDto updatePostById(int postId, Map<String,String> champAmodifier) {
 
         //find the post to update
         PostModel modifiedPost = postRepository.findById(postId)

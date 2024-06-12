@@ -17,6 +17,6 @@ public interface PostService {
     List<PostDto> findBy(String keyword);
     List<PostDto> findAll();
     void delete (int postId);
-    PostDto updatePostById(UUID postId, Map<String, String> champAmodifier);
+    PostDto updatePostById(int postId, Map<String, String> champAmodifier);
    
 }
